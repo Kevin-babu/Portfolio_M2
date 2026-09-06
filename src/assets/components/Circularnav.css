@@ -1,0 +1,372 @@
+/* =========================================================
+   CIRCULAR NAVIGATION
+========================================================= */
+
+.circular-nav {
+  --nav-size: 360px;
+  --wheel-radius: 180px;
+  --red: #e3262e;
+
+  position: relative;
+
+  width: var(--nav-size);
+  height: var(--nav-size);
+
+  display: grid;
+  place-items: center;
+
+  color: var(--text);
+
+  user-select: none;
+}
+
+
+/* =========================================================
+   MACHINE
+========================================================= */
+
+.circular-nav__machine {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  place-items: center;
+}
+
+
+/* =========================================================
+   WHEEL
+========================================================= */
+
+.circular-nav__wheel {
+  position: absolute;
+
+  inset: 0;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  border: 1px solid var(--border);
+
+  border-radius: 50%;
+
+  transform: rotate(var(--rotation));
+
+  transition:
+    transform 0.8s cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+}
+
+
+/* =========================================================
+   WHEEL ITEMS
+========================================================= */
+
+.circular-nav__wheel li {
+  position: absolute;
+
+  inset: 0;
+
+  display: grid;
+  place-items: center;
+
+  pointer-events: none;
+
+  transform:
+    rotate(var(--angle))
+    translateY(calc(var(--wheel-radius) * -1))
+    rotate(calc(var(--angle) * -1));
+}
+
+
+/* =========================================================
+   NAV BUTTON
+========================================================= */
+
+.circular-nav__item {
+  pointer-events: auto;
+
+  border: 1px solid var(--border);
+
+  border-radius: 999px;
+
+  padding: 10px 17px;
+
+  background: var(--surface);
+
+  color: var(--muted);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transform:
+    rotate(var(--counter-rotation));
+
+  transition:
+    transform 0.8s cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    ),
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.circular-nav__item:hover {
+  border-color: var(--red);
+
+  color: var(--text);
+
+  transform:
+    rotate(var(--counter-rotation))
+    scale(1.05);
+}
+
+
+/* =========================================================
+   ACTIVE
+========================================================= */
+
+.circular-nav__item.is-active {
+  background: var(--red);
+
+  border-color: var(--red);
+
+  color: white;
+
+  transform:
+    rotate(var(--counter-rotation))
+    scale(1.12);
+
+  box-shadow:
+    0 0 30px rgba(227, 38, 46, 0.3);
+}
+
+
+/* =========================================================
+   CENTER
+========================================================= */
+
+.circular-nav__center {
+  position: relative;
+
+  z-index: 5;
+
+  width: 190px;
+  height: 190px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  border: 1px solid var(--border);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 25%,
+      var(--surface),
+      var(--bg)
+    );
+
+  box-shadow:
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.08),
+    0 25px 60px
+      rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   CENTER TEXT
+========================================================= */
+
+.circular-nav__eyebrow {
+  margin-bottom: 7px;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+
+  color: var(--muted);
+}
+
+.circular-nav__current {
+  font-size: 27px;
+
+  line-height: 1;
+
+  letter-spacing: -1px;
+}
+
+
+/* =========================================================
+   CONTROLS
+========================================================= */
+
+.circular-nav__controls {
+  display: flex;
+
+  gap: 8px;
+
+  margin-top: 18px;
+}
+
+.circular-nav__controls button {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--border);
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: var(--text);
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.circular-nav__controls button:hover {
+  background: var(--red);
+
+  border-color: var(--red);
+
+  color: white;
+
+  transform: scale(1.08);
+}
+
+
+/* =========================================================
+   FIXED POINTER
+========================================================= */
+
+.circular-nav__pointer {
+  position: absolute;
+
+  left: 50%;
+  top: -13px;
+
+  z-index: 20;
+
+  width: 0;
+  height: 0;
+
+  transform: translateX(-50%);
+
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+
+  border-top: 13px solid var(--red);
+
+  filter:
+    drop-shadow(
+      0 3px 8px
+      rgba(227, 38, 46, 0.45)
+    );
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+.dark-mode .circular-nav__center {
+  box-shadow:
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.06),
+    0 25px 60px
+      rgba(0, 0, 0, 0.4);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .circular-nav {
+    --nav-size: 290px;
+    --wheel-radius: 145px;
+  }
+
+  .circular-nav__center {
+    width: 155px;
+    height: 155px;
+  }
+
+  .circular-nav__current {
+    font-size: 22px;
+  }
+
+  .circular-nav__item {
+    padding: 8px 12px;
+
+    font-size: 9px;
+  }
+
+  .circular-nav__controls {
+    margin-top: 12px;
+  }
+
+  .circular-nav__controls button {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .circular-nav__wheel,
+  .circular-nav__item,
+  .circular-nav__controls button {
+    transition: none;
+  }
+}
