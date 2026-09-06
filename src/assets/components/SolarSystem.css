@@ -1,0 +1,282 @@
+.solar-system {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  perspective: 1000px;
+
+  background: transparent;
+}
+
+
+/* =========================
+   CENTER
+========================= */
+
+.sun {
+  position: absolute;
+
+  width: 15%;
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  background: #fff;
+
+  z-index: 10;
+}
+
+
+/* =========================
+   ORBITS
+========================= */
+
+.orbit {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  border-radius: 50%;
+
+  transform-style: preserve-3d;
+
+  pointer-events: none;
+}
+
+
+/* Inner */
+
+.orbit-1 {
+  width: 28%;
+  height: 16%;
+
+  transform:
+    translate(-50%, -50%)
+    rotateX(65deg)
+    rotateZ(15deg);
+
+  animation: orbit1 7s linear infinite;
+}
+
+
+/* Second */
+
+.orbit-2 {
+  width: 43%;
+  height: 25%;
+
+  transform:
+    translate(-50%, -50%)
+    rotateX(68deg)
+    rotateZ(-25deg);
+
+  animation: orbit2 11s linear infinite reverse;
+}
+
+
+/* Third */
+
+.orbit-3 {
+  width: 59%;
+  height: 35%;
+
+  transform:
+    translate(-50%, -50%)
+    rotateX(63deg)
+    rotateZ(35deg);
+
+  animation: orbit3 15s linear infinite;
+}
+
+
+/* Fourth */
+
+.orbit-4 {
+  width: 76%;
+  height: 46%;
+
+  transform:
+    translate(-50%, -50%)
+    rotateX(70deg)
+    rotateZ(-15deg);
+
+  animation: orbit4 20s linear infinite reverse;
+}
+
+
+/* Outer */
+
+.orbit-5 {
+  width: 92%;
+  height: 57%;
+
+  transform:
+    translate(-50%, -50%)
+    rotateX(66deg)
+    rotateZ(20deg);
+
+  animation: orbit5 27s linear infinite;
+}
+
+
+/* =========================
+   PLANETS
+========================= */
+
+.planet {
+  position: absolute;
+
+  top: 50%;
+  right: -4px;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  background: #fff;
+}
+
+.planet-1 {
+  width: 5px;
+  height: 5px;
+}
+
+.planet-2 {
+  width: 7px;
+  height: 7px;
+}
+
+.planet-3 {
+  width: 4px;
+  height: 4px;
+}
+
+.planet-4 {
+  width: 9px;
+  height: 9px;
+}
+
+.planet-5 {
+  width: 5px;
+  height: 5px;
+}
+
+
+/* =========================
+   ROTATION
+========================= */
+
+@keyframes orbit1 {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotateX(65deg)
+      rotateZ(15deg)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotateX(65deg)
+      rotateZ(15deg)
+      rotate(360deg);
+  }
+}
+
+@keyframes orbit2 {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotateX(68deg)
+      rotateZ(-25deg)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotateX(68deg)
+      rotateZ(-25deg)
+      rotate(360deg);
+  }
+}
+
+@keyframes orbit3 {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotateX(63deg)
+      rotateZ(35deg)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotateX(63deg)
+      rotateZ(35deg)
+      rotate(360deg);
+  }
+}
+
+@keyframes orbit4 {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotateX(70deg)
+      rotateZ(-15deg)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotateX(70deg)
+      rotateZ(-15deg)
+      rotate(360deg);
+  }
+}
+
+@keyframes orbit5 {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotateX(66deg)
+      rotateZ(20deg)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotateX(66deg)
+      rotateZ(20deg)
+      rotate(360deg);
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .sun {
+    width: 18%;
+  }
+
+  .planet-4 {
+    width: 7px;
+    height: 7px;
+  }
+}

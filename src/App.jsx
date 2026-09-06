@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
 import { useEffect, useRef } from "react";
-
-
+import AnimatedSection from "./assets/components/AnimatedSection";
+import GlowingTriangle from "./assets/components/GlowingTriangle";
+import SolarSystem from "./assets/components/SolarSystem";
 
 const projects = [
   {
@@ -34,7 +35,7 @@ const skills = [
 ];
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   return (
     <div className={`portfolio ${darkMode ? "dark-mode" : ""}`}>
@@ -83,12 +84,9 @@ function App() {
 
         {/* HERO IMAGE */}
 
-        {/* <div className="hero-image">
-          <img
-            src="public/hero.png"
-            alt="Kevin"
-          />
-        </div> */}
+        <div className="hero-image">
+          {/* <GlowingTriangle/> */}
+        </div>
 
 
         {/* HERO NAME */}
@@ -148,10 +146,11 @@ function App() {
 
       </section>
 
+      
 
       {/* ================= PROJECTS ================= */}
 
-      <section id="projects" className="projects">
+      {/* <section id="projects" className="projects">
 
         <div className="section-heading">
 
@@ -198,7 +197,7 @@ function App() {
 
         </div>
 
-      </section>
+      </section> */}
 
 
       {/* ================= ABOUT ================= */}
@@ -207,11 +206,12 @@ function App() {
 
         <div className="side-label">
           <span></span>
-          <p>ABOUT ME</p>
+          {/* <p>ABOUT ME</p> */}
         </div>
-
+  
         <div className="about-content">
 
+          {/* <AnimatedSection> */}
           <div className="about-text">
 
             <div className="script-text red">
@@ -241,7 +241,7 @@ function App() {
 
           </div>
 
-
+          {/* </AnimatedSection> */}
           <div className="about-image">
 
             <div className="brush"></div>
@@ -299,10 +299,7 @@ function App() {
 
         <div className="stats-image">
 
-          <img
-            src="/images/work.jpg"
-            alt="Engineering"
-          />
+          <SolarSystem />
 
         </div>
 
@@ -437,7 +434,7 @@ function App() {
           </p>
 
           <a
-            href="mailto:your@email.com"
+            href="mailto:kevin.bbu@gmail.com"
             className="red-button"
           >
             GET IN TOUCH
