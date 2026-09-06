@@ -247,7 +247,7 @@ function App() {
             <div className="brush"></div>
 
             <img
-              src="public/profile.jpg"
+              src="https://github.com/Kevin-babu/Portfolio_M2/blob/main/public/profile.jpg?raw=true"
               alt="Kevin"
             />
 
