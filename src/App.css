@@ -44,7 +44,7 @@ body {
   width: 100%;
   min-width: 100%;
   min-height: 100vh;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   background: var(--bg);
   color: var(--text);
   transition:
@@ -128,7 +128,8 @@ button {
 /* ================= HEADER ================= */
 
 .header {
-  position: absolute;
+  /* position: absolute; */
+  position: sticky;
   top: 0;
   left: 0;
 
@@ -141,6 +142,15 @@ button {
   align-items: center;
 
   z-index: 100;
+
+    background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark-mode .header {
+  background: rgba(15, 15, 15, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .logo {
@@ -347,7 +357,7 @@ button {
   width: 430px;
 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeIn 0.8s ease forwards;
+  animation: fadeIn 1.8s ease forwards;
 }
 
 .hero-name h1 {

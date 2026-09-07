@@ -1,8 +1,10 @@
 import "./SolarSystem.css";
 
-export default function SolarSystem() {
+export default function SolarSystem({ darkmode }) {
+
+  console.log(darkmode);
   return (
-    <div className="solar-system">
+    <div className={`solar-system ${darkmode ? 'dark' : ''}`}>
         <h2>SUN</h2>
       <div className="sun" />
 

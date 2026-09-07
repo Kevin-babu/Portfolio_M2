@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import "./App.css";
-import { useEffect, useRef } from "react";
-import AnimatedSection from "./assets/components/AnimatedSection";
-import GlowingTriangle from "./assets/components/GlowingTriangle";
 import SolarSystem from "./assets/components/SolarSystem";
 
 const projects = [
   {
     title: "LYRA",
     subtitle: "AI MUSIC ASSISTANT",
-    image: "public/lyra.jpg",
+    image: "https://github.com/Kevin-babu/Portfolio_M2/blob/main/public/lyra.jpg?raw=true",
+    url: "https://music-thing-m1-ka1v.vercel.app"
   },
   // {
   //   title: "CONVERSATIONAL",
@@ -35,7 +33,7 @@ const skills = [
 ];
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   return (
     <div className={`portfolio ${darkMode ? "dark-mode" : ""}`}>
@@ -45,7 +43,7 @@ function App() {
 
         <div className="logo">PORTFOLIO.</div>
 
-        <nav>
+        <nav >
           <a href="#home">HOME</a>
           <a href="#about">ABOUT</a>
           <a href="#projects">PROJECTS</a>
@@ -150,13 +148,13 @@ function App() {
 
       {/* ================= PROJECTS ================= */}
 
-      {/* <section id="projects" className="projects">
+      <section id="projects" className="projects">
 
         <div className="section-heading">
 
-          <div className="script-text">
+          {/* <div className="script-text">
             Featured
-          </div>
+          </div> */}
 
           <h2>PROJECTS</h2>
 
@@ -173,7 +171,7 @@ function App() {
               }`}
               key={project.title}
             >
-
+              <a href={project.url} target="_blank" rel="noopener noreferrer">
               <img
                 src={project.image}
                 alt={project.title}
@@ -190,6 +188,8 @@ function App() {
                 </span>
 
               </div>
+              
+              </a>  
 
             </div>
 
@@ -197,7 +197,7 @@ function App() {
 
         </div>
 
-      </section> */}
+      </section>
 
 
       {/* ================= ABOUT ================= */}
@@ -299,7 +299,7 @@ function App() {
 
         <div className="stats-image">
 
-          <SolarSystem />
+          <SolarSystem darkmode={darkMode}/>
 
         </div>
 
