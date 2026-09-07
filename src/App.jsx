@@ -106,7 +106,7 @@ function App() {
 
           <div className="hero-intro">
 
-            <h4>AI SOLUTIONS ENGINEER</h4>
+            <h4>CX AI SOLUTIONS ENGINEER</h4>
 
             <h2>
               BUILDING INTELLIGENT{" "}
@@ -214,9 +214,9 @@ function App() {
           {/* <AnimatedSection> */}
           <div className="about-text">
 
-            <div className="script-text red">
+            {/* <div className="script-text red">
               Who I Am
-            </div>
+            </div> */}
 
             <h2>
               SOLVING PROBLEMS
@@ -306,7 +306,7 @@ function App() {
         <div className="stats-content">
 
           <div className="script-text red">
-            By The Numbers
+            Numbers
           </div>
 
           <h2>SOME COOL STATS</h2>
