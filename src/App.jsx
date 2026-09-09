@@ -9,11 +9,11 @@ const projects = [
     image: "https://github.com/Kevin-babu/Portfolio_M2/blob/main/public/lyra.jpg?raw=true",
     url: "https://music-thing-m1-ka1v.vercel.app"
   },
-  // {
-  //   title: "CONVERSATIONAL",
-  //   subtitle: "AI ASSISTANT",
-  //   image: "public/ai.jpg",
-  // },
+  {
+    title: "CONVERSATIONAL",
+    subtitle: "AI ASSISTANT",
+    image: "public/ai.jpg",
+  },
   // {
   //   title: "GENESYS CLOUD",
   //   subtitle: "AWS INTEGRATION",
